@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Detect Resolution</title>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+	<style>
+		.container {
+			width: 960px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="container">
+		<h1>
+			Detect Resolution - медиа запросы для js, помогает инициализирывать и деиницализировать различный функционал с помощью генерации событий.
+		</h1>
+		
+		<p>
+			Плагин принимает в качестве параметра массив разрешений и при загрузке страницы (document.ready) или ресайзе страницы генерирует 
+			события.
+		</p>
+		
+		<p>
+			Всегда генерируется событие onchangeresolution в объекте Event котороко передается имя этого разрешения.
+		</p>
+			
+			
+		
+		<p>
+			Также генерируется событие для каждого передано брейк поинта (on/off). Например: передаем настройками такой объект (это настройки по умолчанию)
+		</p>
+		
+		<pre>
+			<code>
+var option = {
+	breakpoints: {
+
+		xsmall: {				
+				finish: 767
+			},
+
+		small: {
+				start: 768,
+				finish: 991
+			},
+
+		medium: {
+				start: 992,
+				finish: 1279
+			},
+
+		large: {
+				start: 1280,
+				finish: 1365
+			},
+			
+		xlarge: {
+				start: 1366
+			}
+	}
+}
+			</code>
+		</pre>
+
+		<p>
+			onxsmall сработает при разрешении 0 - 676 
+			onsmall сработает при разрешении 676 - 791 
+			onmedium сработает при разрешении 791 - 1200 
+			onlarge сработает при разрешении > 1200  
+		</p>
+
+		<p>
+			события offxsmall и т.д. срабатывают при смене разрешения на другой breakpoint с указаного  
+		</p>
+		
+	</div><!-- /container -->
+	<script src="js/detectResolution.js"></script>
+</body>
+</html>
